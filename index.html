@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>生日快乐 杨竤博</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffccff, #ccffff);
+      overflow: hidden;
+      font-family: "Comic Sans MS", "Arial", sans-serif;
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+    }
+
+    .title {
+      font-size: 64px;
+      color: #ff0066;
+      text-shadow: 2px 2px #00ffff, -2px -2px #ffff00;
+      animation: blink 1.2s infinite;
+    }
+
+    .cake {
+      font-size: 80px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .cake:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    .wish {
+      position: absolute;
+      font-size: 22px;
+      white-space: nowrap;
+      text-shadow: 1px 1px #ffffff;
+      animation: float linear infinite;
+      display: none;
+    }
+
+    @keyframes float {
+      from { transform: translateY(110vh); }
+      to { transform: translateY(-120vh); }
+    }
+
+    .w1 { left: 5%;  animation-duration: 18s; color:#6600ff; }
+    .w2 { left: 20%; animation-duration: 22s; color:#ff6600; }
+    .w3 { left: 40%; animation-duration: 20s; color:#0099ff; }
+    .w4 { left: 60%; animation-duration: 26s; color:#00aa66; }
+    .w5 { left: 75%; animation-duration: 19s; color:#ff0099; }
+  </style>
+
+  <script>
+    function cakeBlessing() {
+      // 祝福飘出
+      const wishes = document.querySelectorAll('.wish');
+      wishes.forEach(w => w.style.display = 'block');
+
+      // 播放音乐
+      const audio = document.getElementById('bgmusic');
+      audio.play();
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- 背景音乐，点击蛋糕触发 -->
+  <audio id="bgmusic" loop>
+    <source src="caierzhi23.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="center">
+    <div class="title">🎉 生日快乐！ 🎉</div>
+    <div class="cake" onclick="cakeBlessing()">🎂</div>
+    <div style="font-size:26px; margin-top:15px; color:#000099;">杨竤博</div>
+    <div style="font-size:14px; margin-top:6px; color:#555;">（点蛋糕）</div>
+  </div>
+
+  <!-- 点击蛋糕后飘出的祝福 -->
+  <div class="wish w1">✈️ 想去的地方都有品质航空的低价机票</div>
+  <div class="wish w2">🍺 喝酒可以不脂肪肝</div>
+  <div class="wish w3">🎤 KTV唱功更上一层楼</div>
+  <div class="wish w4">📨 收到新国立的 offer</div>
+  <div class="wish w5">🌈 拥有真正的自由</div>
+
+</body>
+</html>
